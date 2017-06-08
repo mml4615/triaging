@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   get "/evaluations/:id/edit", :controller => "evaluations", :action => "edit"
   post "/update_evaluation/:id", :controller => "evaluations", :action => "update"
 
+  # TRiage
+  get "/users/triage", :controller => "users", :action => "triage"
+
   # DELETE
   get "/delete_evaluation/:id", :controller => "evaluations", :action => "destroy"
   #------------------------------
@@ -19,6 +22,6 @@ Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-root 'home#index'
+root 'evaluations#index'
 
 end
