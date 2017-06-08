@@ -1,0 +1,168 @@
+<!-- Validation failure messages -->
+<% if @evaluation.errors.any? %>
+  <% @evaluation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Schedule Appointment</h3>
+  <h4> If you need immediate help, please dial 911 </h4>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_evaluation" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- input for user_id -->
+
+  <input type="hidden" id="user_id" name="user_id" value="<%= @evaluation.user_id %>">
+
+
+        <!-- Label and input for feeling -->
+     <div class="form-group">
+          <label for="feeling" class="control-label">
+            How do you feel about making this appointment?
+          </label>
+
+            <textarea class="form-control" rows="2" type="text" id="feeling" name="feeling" placeholder="I feel..." value="<%= @evaluation.feeling %>">
+  </textarea>
+        </div>
+
+        <!-- Label and input for appointment_reason -->
+        <div class="form-group">
+          <label for="appointment_reason" class="control-label">
+            What has made you request an appointment?
+          </label>
+
+          <textarea class="form-control" rows="2" type="text" id="appointment_reason" name="appointment_reason" placeholder="I need this appointment because..." value="<%= @evaluation.appointment_reason %>">
+        </textarea>
+        </div>
+
+      <!-- Label and input for alcohol_use -->
+      <div class="form-group">
+        <label type="text" class="control-label" placeholder="10" for="alcohol_use">
+          In the last 28 days, how many days have you had a drink of alcohol?
+        </label>
+
+        <input type="text" id="alcohol_use" name="alcohol_use" placeholder="10" class="form-control" value="<%= @evaluation.alcohol_use %>">
+      </div>
+
+
+            <!-- Label and input for unsafe_sex -->
+            <div class="form-group">
+              <label for="unsafe_sex" class="control-label">
+                How often do you have unsafe sex?
+              </label>
+
+              <select type="text" id="unsafe_sex" name="unsafe_sex" placeholder="Unsafe sex" class="form-control" value="<%= @evaluation.unsafe_sex %>">
+                <option value="1">Regularly</option>
+                <option value="2">Occasionaly</option>
+                <option value="3">Never</option>
+              </select>
+            </div>
+
+
+
+
+     <p>Please check the box if your answer is YES to the following questions</p>
+            <!-- Label and input for prescription -->
+            <div class="checkbox">
+              <label for="prescription">
+                <input type="checkbox" id="prescription" name="prescription" value="1" <%= "checked" if @evaluation.prescription %>>
+                Do you take any anti-depressants?
+              </label>
+            </div>
+
+
+      <!-- Label and input for drug_use -->
+      <div class="checkbox">
+        <label for="drug_use">
+          <input type="checkbox" id="drug_use" name="drug_use" value="1" <%= "checked" if @evaluation.drug_use %>>
+          Do you use illicit drugs regularly?
+        </label>
+      </div>
+
+
+      <!-- Label and input for thoughts_suicide_harm -->
+      <div class="checkbox">
+        <label for="thoughts_suicide_harm">
+          <input type="checkbox" id="thoughts_suicide_harm" name="thoughts_suicide_harm" value="1" <%= "checked" if @evaluation.thoughts_suicide_harm %>>
+          Do you have self-harm or suicidal thoughts
+        </label>
+      </div>
+
+      <!-- Label and input for attempted_suicide -->
+      <div class="checkbox">
+        <label for="attempted_suicide">
+          <input type="checkbox" id="attempted_suicide" name="attempted_suicide" value="1" <%= "checked" if @evaluation.attempted_suicide %>>
+          Have you ever attempted suicide?
+        </label>
+      </div>
+
+      <!-- Label and input for violent_behaviour -->
+      <div class="checkbox">
+        <label for="violent_behaviour">
+          <input type="checkbox" id="violent_behaviour" name="violent_behaviour" value="1" <%= "checked" if @evaluation.violent_behaviour %>>
+          Have you been violent to others?
+        </label>
+      </div>
+
+      <!-- Label and input for domestic_abuse -->
+      <div class="checkbox">
+        <label for="domestic_abuse">
+          <input type="checkbox" id="domestic_abuse" name="domestic_abuse" value="1" <%= "checked" if @evaluation.domestic_abuse %>>
+          Do you suffer from domestic abuse?
+        </label>
+      </div>
+
+      <!-- Label and input for criminal_activity -->
+      <div class="checkbox">
+        <label for="criminal_activity">
+          <input type="checkbox" id="criminal_activity" name="criminal_activity" value="1" <%= "checked" if @evaluation.criminal_activity %>>
+          Have you ever been convicted of criminal activity?
+        </label>
+      </div>
+
+  
+      <!-- Label and input for disability -->
+      <div class="form-group">
+        <label for="disability" class="control-label">
+          Do you have a disability?
+        </label>
+
+        <select type="text" id="disability" name="disability" placeholder="Disability" class="form-control" value="<%= @evaluation.disability %>">
+          <option value="1">Mental Health Difficulties</option>
+          <option value="2">Dementia</option>
+          <option value="3">Speech impairment</option>
+          <option value="4">Physical Disability</option>
+          <option value="5">Learning diffilculty</option>
+          <option value="5">Hearing Impairment</option>
+          <option value="5">Other disability</option>
+          <option value="5">No disability</option>
+          <option value="5">Prefer not to say</option>
+        </select>
+           </div>
+
+
+      <!-- Label and input for availability -->
+      <div class="form-group">
+        <label for="availability" class="control-label">
+          Please list your availability for an appointment
+        </label>
+        <input type="text" id="availability" name="availability" placeholder="I'm free Tuesdays from 10am to 12pm" class="form-control" value="<%= @evaluation.availability %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Evaluation
+      </button>
+      or
+      <a href="/evaluations">Cancel</a>
+    </form>
+  </div>
+</div>

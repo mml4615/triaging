@@ -1,0 +1,183 @@
+<!-- Validation failure messages -->
+<% if @evaluation.errors.any? %>
+  <% @evaluation.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Evaluation #<%= @evaluation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_evaluation/<%= @evaluation.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for user_id -->
+      <div class="form-group">
+        <label for="user_id" class="control-label">
+          User
+        </label>
+
+        <input type="text" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= @evaluation.user_id %>">
+      </div>
+
+      <!-- Label and input for prescription -->
+      <div class="checkbox">
+        <label for="prescription">
+          <input type="checkbox" id="prescription" name="prescription" value="1" <%= "checked" if @evaluation.prescription %>>
+          Prescription
+        </label>
+      </div>
+
+      <!-- Label and input for alcohol_use -->
+      <div class="form-group">
+        <label for="alcohol_use" class="control-label">
+          Alcohol use
+        </label>
+
+        <input type="text" id="alcohol_use" name="alcohol_use" placeholder="Alcohol use" class="form-control" value="<%= @evaluation.alcohol_use %>">
+      </div>
+
+      <!-- Label and input for drug_use -->
+      <div class="checkbox">
+        <label for="drug_use">
+          <input type="checkbox" id="drug_use" name="drug_use" value="1" <%= "checked" if @evaluation.drug_use %>>
+          Drug use
+        </label>
+      </div>
+
+      <!-- Label and input for feeling -->
+      <div class="form-group">
+        <label for="feeling" class="control-label">
+          Feeling
+        </label>
+
+        <input type="text" id="feeling" name="feeling" placeholder="Feeling" class="form-control" value="<%= @evaluation.feeling %>">
+      </div>
+
+      <!-- Label and input for appointment_reason -->
+      <div class="form-group">
+        <label for="appointment_reason" class="control-label">
+          Appointment reason
+        </label>
+
+        <input type="text" id="appointment_reason" name="appointment_reason" placeholder="Appointment reason" class="form-control" value="<%= @evaluation.appointment_reason %>">
+      </div>
+
+      <!-- Label and input for thoughts_suicide_harm -->
+      <div class="checkbox">
+        <label for="thoughts_suicide_harm">
+          <input type="checkbox" id="thoughts_suicide_harm" name="thoughts_suicide_harm" value="1" <%= "checked" if @evaluation.thoughts_suicide_harm %>>
+          Thoughts suicide harm
+        </label>
+      </div>
+
+      <!-- Label and input for attempted_suicide -->
+      <div class="checkbox">
+        <label for="attempted_suicide">
+          <input type="checkbox" id="attempted_suicide" name="attempted_suicide" value="1" <%= "checked" if @evaluation.attempted_suicide %>>
+          Attempted suicide
+        </label>
+      </div>
+
+      <!-- Label and input for unsafe_sex -->
+      <div class="form-group">
+        <label for="unsafe_sex" class="control-label">
+          Unsafe sex
+        </label>
+
+        <input type="text" id="unsafe_sex" name="unsafe_sex" placeholder="Unsafe sex" class="form-control" value="<%= @evaluation.unsafe_sex %>">
+      </div>
+
+      <!-- Label and input for violent_behaviour -->
+      <div class="checkbox">
+        <label for="violent_behaviour">
+          <input type="checkbox" id="violent_behaviour" name="violent_behaviour" value="1" <%= "checked" if @evaluation.violent_behaviour %>>
+          Violent behaviour
+        </label>
+      </div>
+
+      <!-- Label and input for domestic_abuse -->
+      <div class="checkbox">
+        <label for="domestic_abuse">
+          <input type="checkbox" id="domestic_abuse" name="domestic_abuse" value="1" <%= "checked" if @evaluation.domestic_abuse %>>
+          Domestic abuse
+        </label>
+      </div>
+
+      <!-- Label and input for criminal_activity -->
+      <div class="checkbox">
+        <label for="criminal_activity">
+          <input type="checkbox" id="criminal_activity" name="criminal_activity" value="1" <%= "checked" if @evaluation.criminal_activity %>>
+          Criminal activity
+        </label>
+      </div>
+
+      <!-- Label and input for diagnosed_condition -->
+      <div class="form-group">
+        <label for="diagnosed_condition" class="control-label">
+          Diagnosed condition
+        </label>
+
+        <input type="text" id="diagnosed_condition" name="diagnosed_condition" placeholder="Diagnosed condition" class="form-control" value="<%= @evaluation.diagnosed_condition %>">
+      </div>
+
+      <!-- Label and input for hospital_admissions -->
+      <div class="form-group">
+        <label for="hospital_admissions" class="control-label">
+          Hospital admissions
+        </label>
+
+        <input type="text" id="hospital_admissions" name="hospital_admissions" placeholder="Hospital admissions" class="form-control" value="<%= @evaluation.hospital_admissions %>">
+      </div>
+
+      <!-- Label and input for hallucinations -->
+      <div class="form-group">
+        <label for="hallucinations" class="control-label">
+          Hallucinations
+        </label>
+
+        <input type="text" id="hallucinations" name="hallucinations" placeholder="Hallucinations" class="form-control" value="<%= @evaluation.hallucinations %>">
+      </div>
+
+      <!-- Label and input for disability -->
+      <div class="form-group">
+        <label for="disability" class="control-label">
+          Disability
+        </label>
+
+        <input type="text" id="disability" name="disability" placeholder="Disability" class="form-control" value="<%= @evaluation.disability %>">
+      </div>
+
+      <!-- Label and input for availability -->
+      <div class="form-group">
+        <label for="availability" class="control-label">
+          Availability
+        </label>
+
+        <input type="text" id="availability" name="availability" placeholder="Availability" class="form-control" value="<%= @evaluation.availability %>">
+      </div>
+
+      <!-- Label and input for insurance -->
+      <div class="form-group">
+        <label for="insurance" class="control-label">
+          Insurance
+        </label>
+
+        <input type="text" id="insurance" name="insurance" placeholder="Insurance" class="form-control" value="<%= @evaluation.insurance %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Evaluation
+      </button>
+      or
+      <a href="/evaluations/<%= @evaluation.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,76 @@
+<div class="page-header">
+  <h3>Evaluation #<%= @evaluation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>User</dt>
+      <dd><%= @evaluation.user_id %></dd>
+
+      <dt>Prescription</dt>
+      <dd><%= @evaluation.prescription %></dd>
+
+      <dt>Alcohol use</dt>
+      <dd><%= @evaluation.alcohol_use %></dd>
+
+      <dt>Drug use</dt>
+      <dd><%= @evaluation.drug_use %></dd>
+
+      <dt>Feeling</dt>
+      <dd><%= @evaluation.feeling %></dd>
+
+      <dt>Appointment reason</dt>
+      <dd><%= @evaluation.appointment_reason %></dd>
+
+      <dt>Thoughts suicide harm</dt>
+      <dd><%= @evaluation.thoughts_suicide_harm %></dd>
+
+      <dt>Attempted suicide</dt>
+      <dd><%= @evaluation.attempted_suicide %></dd>
+
+      <dt>Unsafe sex</dt>
+      <dd><%= @evaluation.unsafe_sex %></dd>
+
+      <dt>Violent behaviour</dt>
+      <dd><%= @evaluation.violent_behaviour %></dd>
+
+      <dt>Domestic abuse</dt>
+      <dd><%= @evaluation.domestic_abuse %></dd>
+
+      <dt>Criminal activity</dt>
+      <dd><%= @evaluation.criminal_activity %></dd>
+
+      <dt>Diagnosed condition</dt>
+      <dd><%= @evaluation.diagnosed_condition %></dd>
+
+      <dt>Hospital admissions</dt>
+      <dd><%= @evaluation.hospital_admissions %></dd>
+
+      <dt>Hallucinations</dt>
+      <dd><%= @evaluation.hallucinations %></dd>
+
+      <dt>Disability</dt>
+      <dd><%= @evaluation.disability %></dd>
+
+      <dt>Availability</dt>
+      <dd><%= @evaluation.availability %></dd>
+
+      <dt>Insurance</dt>
+      <dd><%= @evaluation.insurance %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/evaluations" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/evaluations/<%= @evaluation.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_evaluation/<%= @evaluation.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
