@@ -1,9 +1,9 @@
 <div class="page-header">
-  <h1>
-    Prioritized Evaluations
-  </h1>
+  <h2>
+    Triage
+  </h2>
 
-  <h3> Print evaluation before deleting </h3>
+  <small> Print evaluation before deleting </small>
 </div>
 
 <div class="row">
@@ -25,25 +25,24 @@
         <td><%= evaluation.user.last_name %></td>
         <td><a href="/evaluations/<%=evaluation.id %>">See answers</a></td>
 
-        <td>
+
           <% if evaluation.thoughts_suicide_harm && evaluation.violent_behaviour && evaluation.attempted_suicide %>
-          <a class="bg-danger">Risk of Danger to Self</a>
+          <td class="danger">Risk of Danger to Self</td>
           <% elsif evaluation.thoughts_suicide_harm && evaluation.violent_behaviour  %>
-          <a class="bg-warning">Possible Danger to Self</a>
+          <td class="warning">Possible Danger to Self</td>
           <% elsif evaluation.thoughts_suicide_harm && evaluation.violent_behaviour && evaluation.attempted_suicide %>
-          <a class="bg-warning">Possible Danger to Self</a>
+          <td class="active">Possible Danger to Self</td>
           <% else %>
-          <a class="bg-success">Moderate Distress</a>
+          <td class="success">Moderate Distress</td>
           <%end%>
 
-      </td>
 
             <td>
               <%= time_ago_in_words( evaluation.created_at) %>
             </td>
 
             <td>
-              <a href="/delete_evaluation/<%=evaluation.id %>">Delete</a>
+              <a class="btn btn-default" role="button" href="/delete_evaluation/<%=evaluation.id %>">Delete</a>
             </td>
 
           </tr>

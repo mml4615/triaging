@@ -17,10 +17,10 @@
 
       <% @evaluations.each do |evaluation| %>
       <tr>
-        <td><%= evaluation.user_id.first_name %></td>
-          <td><%= evaluation.user_id.last_name %></td>
+        <td><%= evaluation.user.first_name %></td>
+          <td><%= evaluation.user.last_name %></td>
           <td><a href="/evaluations/<%=evaluation.id %>">See answers</a></td>
-          <td><%= time_ago_in_words(@evaluation.user_id.created_at) %></td>
+          <td><%= time_ago_in_words(evaluation.created_at) %></td>
       </tr>
       <% end %>
     </table>

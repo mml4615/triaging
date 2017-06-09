@@ -2,9 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Help Center</title>
+  <title>Triaging</title>
 
-  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootswatch/3.3.5/paper/bootstrap.min.css">
+
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 
   <style>
@@ -34,59 +35,66 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a href="/" class="navbar-brand">Help Center</a>
+        <a href="/" class="navbar-brand">Triaging</a>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a href="/evaluations/new">Schedule Appointment</a></li>
-          <li><a href="/evaluations">All Evaluations</a></li>
-          <li><a href="/users/triage">Triage</a></li>
+
         </ul>
 
-
-
-
-
-              <% if current_user.present? %>
-
-              <% if  current_user.username == "admin" %>
-                  <ul class="nav navbar-nav">
-                      <li><a href="/evaluations">All Evaluations</a></li>
-                      <li><a href="/users/triage">Triage</a></li>
-                  <% end %>
-                </ul>
-
   <ul class="nav navbar-nav navbar-right">
-              <li>
-                <a href="/users/edit">
-                  <i class="fa fa-fw fa-edit"></i>
-                  <%= current_user.first_name %>
-                </a>
-              </li>
-              <li>
-                <a href="/users/sign_out" data-method="delete" rel="nofollow">
-                  <i class="fa fa-fw fa-sign-out"></i>
-                  Sign Out
-                </a>
-              </li>
-              <% else %>
-              <li>
-                <a href="/users/sign_in">
-                  Sign In
-                  </a>
-                </li>
-              <li>
-                <a href="/users/sign_up">
-                  Sign Up
-                  </a>
-                </li>
-              <% end %>
-            </ul>
-          </div>
+        <% if current_user.present? %>
 
-        <!-- /.navbar-collapse -->
+        <% if current_user.username == "a"
+        <li><a href="/evaluations">Evaluations</a></li>
+        <li><a href="/rails/info">Triaged Evaluations</a></li>
+
+                <li>
+                  <a href="/users/<%= current_user.id %>">
+                    <i class="fa fa-fw fa-user"></i>
+                    <span class="hidden-sm">
+                      My Wall
+                    </span>
+                  </a>
+                </li>
+                <% end %>
+              </ul>
+
+              <ul class="nav navbar-nav navbar-right">
+                <% if current_user.present? %>
+                <li>
+                  <a href="/users/edit">
+                    <i class="fa fa-fw fa-edit"></i>
+                    <%= current_user.username %>
+                  </a>
+                </li>
+                <li>
+                  <a href="/users/sign_out" data-method="delete" rel="nofollow">
+                    <i class="fa fa-fw fa-sign-out"></i>
+                    Sign Out
+                  </a>
+                </li>
+                <% else %>
+                <li>
+                  <a href="/users/sign_in">
+                    Sign In
+                    </a>
+                  </li>
+                <li>
+                  <a href="/users/sign_up">
+                    Sign Up
+                    </a>
+                  </li>
+                <% end %>
+              </ul>
+            </div>
+
+
+
+    <!-- /.navbar-collapse -->
     </div>
   </nav>
 
