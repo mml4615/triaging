@@ -9,16 +9,14 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th>User</th>
         <th>Assessment</th>
         <th>Waitime</th>
       </tr>
 
       <% @evaluations.each do |evaluation| %>
       <tr>
-        <td><%= evaluation.user.first_name %></td>
-          <td><%= evaluation.user.last_name %></td>
+        <td><%= evaluation.user.email %></td>
           <td><a href="/evaluations/<%=evaluation.id %>">See answers</a></td>
           <td><%= time_ago_in_words(evaluation.created_at) %></td>
       </tr>

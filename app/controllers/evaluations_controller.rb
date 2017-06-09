@@ -12,13 +12,6 @@ class EvaluationsController < ApplicationController
   end
 
 
-  def triage
-    @users = User.all
-    @evaluations = Evaluation.all.order(:thoughts_suicide_harm, :disability, :attempted_suicide, :created_at,:drug_use, :alcohol_use, :violent_behaviour, :unsafe_sex, :diagnosed_condition)
-
-  end
-
-
   def new
     @evaluation = Evaluation.new
 

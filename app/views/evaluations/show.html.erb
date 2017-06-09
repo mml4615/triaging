@@ -2,6 +2,20 @@
   <h3>Evaluation #<%= @evaluation.id %></h3>
 </div>
 
+<h4>Thank you ! We will contact you as soon as possible. </h4>
+
+<div class="btn-group btn-group-justified">
+ <a href="/users/sign_out" class="btn btn-primary">
+  Sign-out
+ </a>
+ <a href="/evaluations/<%= @evaluation.id %>/edit" class="btn btn-warning">
+   Edit
+ </a>
+ <a href="/delete_evaluation/<%= @evaluation.id %>" class="btn btn-danger" rel="nofollow">
+   Delete
+ </a>
+</div>
+
 <div class="row">
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
@@ -61,16 +75,6 @@
 
     </dl>
 
-    <div class="btn-group btn-group-justified">
-      <a href="/evaluations" class="btn btn-primary">
-        Back
-      </a>
-      <a href="/evaluations/<%= @evaluation.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_evaluation/<%= @evaluation.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
-    </div>
+
   </div>
 </div>

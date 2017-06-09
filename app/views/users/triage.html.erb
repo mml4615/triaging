@@ -11,8 +11,7 @@
     <table class="table table-striped table-hover">
       <tr>
 
-        <th>First Name</th>
-        <th>Last Name</th>
+        <th>User</th>
         <th>Answers</th>
         <th>Triage</th>
         <th>Waitime</th>
@@ -21,16 +20,15 @@
 
       <% @evaluations.each do |evaluation| %>
       <tr>
-        <td><%= evaluation.user.first_name %></td>
-        <td><%= evaluation.user.last_name %></td>
+        <td><%= evaluation.user.email %></td>
         <td><a href="/evaluations/<%=evaluation.id %>">See answers</a></td>
 
 
           <% if evaluation.thoughts_suicide_harm && evaluation.violent_behaviour && evaluation.attempted_suicide %>
-          <td class="danger">Risk of Danger to Self</td>
-          <% elsif evaluation.thoughts_suicide_harm && evaluation.violent_behaviour  %>
-          <td class="warning">Possible Danger to Self</td>
-          <% elsif evaluation.thoughts_suicide_harm && evaluation.violent_behaviour && evaluation.attempted_suicide %>
+          <td class="danger">Definite of Danger to Self</td>
+          <% elsif evaluation.attempted_suicide %>
+          <td class="warning">Risk of Danger to Self</td>
+          <% elsif evaluation.thoughts_suicide_harm %>
           <td class="active">Possible Danger to Self</td>
           <% else %>
           <td class="success">Moderate Distress</td>
