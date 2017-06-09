@@ -21,7 +21,7 @@
 
       <!-- input for user_id -->
 
-  <input type="hidden" id="user_id" name="user_id" value="<%= @evaluation.user_id %>">
+  <input type="hidden" id="user_id" name="user_id" value="<%= current_user.id %>">
 
 
         <!-- Label and input for feeling -->
@@ -129,7 +129,7 @@
         </label>
       </div>
 
-  
+
       <!-- Label and input for disability -->
       <div class="form-group">
         <label for="disability" class="control-label">

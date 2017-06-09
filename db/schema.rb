@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170608175527) do
     t.string   "insurance"
     t.datetime "created_at",            null: false
     t.datetime "updated_at",            null: false
+    t.boolean "triage"
   end
 
   create_table "users", force: :cascade do |t|

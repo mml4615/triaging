@@ -14,7 +14,7 @@ class EvaluationsController < ApplicationController
 
   def triage
     @users = User.all
-    @evaluations = Evaluation.all
+    @evaluations = Evaluation.all.order(:thoughts_suicide_harm, :disability, :attempted_suicide, :created_at,:drug_use, :alcohol_use, :violent_behaviour, :unsafe_sex, :diagnosed_condition)
 
   end
 
@@ -28,7 +28,7 @@ class EvaluationsController < ApplicationController
   def create
     @evaluation = Evaluation.new
 
-  @evaluation.id = params[:id]
+    @evaluation.id = params[:id]
     @evaluation.user_id = params[:user_id]
     @evaluation.prescription = params[:prescription]
     @evaluation.alcohol_use = params[:alcohol_use]
