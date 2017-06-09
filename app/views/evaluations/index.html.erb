@@ -9,52 +9,18 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>User</th>
-        <th>Prescription</th>
-        <th>Alcohol use</th>
-        <th>Drug use</th>
-        <th>Feeling</th>
-        <th>Appointment reason</th>
-        <th>Thoughts suicide harm</th>
-        <th>Attempted suicide</th>
-        <th>Unsafe sex</th>
-        <th>Violent behaviour</th>
-        <th>Domestic abuse</th>
-        <th>Criminal activity</th>
-        <th>Diagnosed condition</th>
-        <th>Hospital admissions</th>
-        <th>Hallucinations</th>
-        <th>Disability</th>
-        <th>Availability</th>
-        <th>Insurance</th>
-        <th>Actions</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Assessment</th>
+        <th>Waitime</th>
       </tr>
 
       <% @evaluations.each do |evaluation| %>
       <tr>
-        <td><%= evaluation.user_id %></td>
-        <td><%= evaluation.prescription %></td>
-        <td><%= evaluation.alcohol_use %></td>
-        <td><%= evaluation.drug_use %></td>
-        <td><%= evaluation.feeling %></td>
-        <td><%= evaluation.appointment_reason %></td>
-        <td><%= evaluation.thoughts_suicide_harm %></td>
-        <td><%= evaluation.attempted_suicide %></td>
-        <td><%= evaluation.unsafe_sex %></td>
-        <td><%= evaluation.violent_behaviour %></td>
-        <td><%= evaluation.domestic_abuse %></td>
-        <td><%= evaluation.criminal_activity %></td>
-        <td><%= evaluation.diagnosed_condition %></td>
-        <td><%= evaluation.hospital_admissions %></td>
-        <td><%= evaluation.hallucinations %></td>
-        <td><%= evaluation.disability %></td>
-        <td><%= evaluation.availability %></td>
-        <td><%= evaluation.insurance %></td>
-        <td>
-          <a href="/evaluations/<%= evaluation.id %>" class="btn btn-primary">Show</a>
-          <a href="/evaluations/<%= evaluation.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_evaluation/<%= evaluation.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
-        </td>
+        <td><%= evaluation.user_id.first_name %></td>
+          <td><%= evaluation.user_id.last_name %></td>
+          <td><a href="/evaluations/<%=evaluation.id %>">See answers</a></td>
+          <td><%= time_ago_in_words(@evaluation.user_id.created_at) %></td>
       </tr>
       <% end %>
     </table>

@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   post "/update_evaluation/:id", :controller => "evaluations", :action => "update"
 
   # TRiage
-  get "/users/triage", :controller => "users", :action => "triage"
+  get "/users/triage", :controller => "evaluations", :action => "triage"
 
   # DELETE
   get "/delete_evaluation/:id", :controller => "evaluations", :action => "destroy"

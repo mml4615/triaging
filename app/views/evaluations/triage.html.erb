@@ -1,0 +1,46 @@
+<div class="page-header">
+  <h1>
+    Prioritized Evaluations
+  </h1>
+</div>
+
+<%= Evaluation.order(:thoughts_suicide_harm, :disability, :attempted_suicide, :created_at,:drug_use, :alcohol_use, :violent_behaviour, :unsafe_sex, :diagnosed_condition) %>
+
+<%= Evaluation.take(:thoughts_suicide_harm) %>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Order</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Answers</th>
+        <th>Triage</th>
+        <th>Waitime</th>
+        <th>Appointment Scheduled</th>
+      </tr>
+
+
+      <% @evaluations.each do |evaluation| %>
+      <tr>
+        <td><%= evaluation.user_id.first_name %></td>
+          <td><%= evaluation.user_id.last_name %></td>
+          <td><a href="/evaluations/<%=evaluation.id %>">See answers</a></td>
+          <td>
+
+            <a>Red</a>
+            <%= else %>
+            <%=if Evaluation.take(:thoughts_suicide_harm) + Evaluation.take(:violent_behaviour) + Evaluation.take(:attempted_suicide) == nil %>
+<a>Orange</a>
+<%= else %>
+<a>Yellow</a>
+  <%end%>
+            <%end%>
+            <td>
+          <td><%= time_ago_in_words(@evaluation.user_id.created_at) %></td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

@@ -12,6 +12,13 @@ class EvaluationsController < ApplicationController
   end
 
 
+  def triage
+    @users = User.all
+    @evaluations = Evaluation.all
+
+  end
+
+
   def new
     @evaluation = Evaluation.new
 
@@ -21,6 +28,7 @@ class EvaluationsController < ApplicationController
   def create
     @evaluation = Evaluation.new
 
+  @evaluation.id = params[:id]
     @evaluation.user_id = params[:user_id]
     @evaluation.prescription = params[:prescription]
     @evaluation.alcohol_use = params[:alcohol_use]
